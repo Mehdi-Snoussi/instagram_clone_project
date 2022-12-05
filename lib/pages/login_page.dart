@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:second_app/pages/bottom_app.dart';
+import 'package:second_app/pages/home_page.dart';
 import 'package:second_app/pages/signup_page.dart';
 import 'package:second_app/widgets/custom_header.dart';
 
@@ -25,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -94,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     print(_userName + " " + _password);
+                    Get.to(() => const BottomScreen(), transition: Transition.leftToRightWithFade);
                   } else {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(const SnackBar(content: Text('invalid')));
@@ -128,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextSpan(
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.to(() => SignUpPage()),
+                          ..onTap = () => Get.to(() => SignUpPage(), transition: Transition.leftToRightWithFade),
                         text: " Create",
                         style: const TextStyle(
                             color: Colors.black,
