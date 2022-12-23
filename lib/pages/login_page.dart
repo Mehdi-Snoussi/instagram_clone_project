@@ -2,10 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:provider/provider.dart';
+import 'package:second_app/helpers/login_helper.dart';
+import 'package:second_app/models/user.dart';
 import 'package:second_app/pages/bottom_app.dart';
-import 'package:second_app/pages/home_page.dart';
 import 'package:second_app/pages/signup_page.dart';
+import 'package:second_app/providers/user_proviser.dart';
 import 'package:second_app/widgets/custom_header.dart';
 
 import '../widgets/custom_inputs.dart';
@@ -21,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   late String _userName;
   late String _password;
+  LoginHelper log = LoginHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +50,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     CustomInputs(
                       obscureText: false,
-                      textInputType: TextInputType.emailAddress,
-                      validator: RequiredValidator(errorText: 'enter email'),
+                      textInputType: TextInputType.text,
+                      validator: RequiredValidator(errorText: 'enter username'),
                       onsaved: (value) => _userName = value!,
-                      hintText: 'Email',
+                      hintText: 'username',
                       prefix: const Icon(
                         Icons.email,
                         color: Color.fromRGBO(255, 171, 64, 1),
@@ -92,13 +95,25 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40,
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
                   if (_formKey.currentState!.validate()) {
-                    print(_userName + " " + _password);
-                    Get.to(() => const BottomScreen(), transition: Transition.leftToRightWithFade);
+                    if (await log.getLogin(_userName, _password) != null) {
+
+                      _formKey.currentState?.save();
+                      Provider.of<UserProvider>(context, listen: false).updateUser(_userName, _password);
+                      _formKey.currentState?.reset();
+
+                      print(await log.getUsers());
+                      
+                      Get.to(() => const BottomScreen(),
+                          transition: Transition.leftToRightWithFade);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('invalid credentials!')));
+                    }
                   } else {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(const SnackBar(content: Text('invalid')));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('invalid input')));
                   }
                 },
                 child: Ink(
@@ -130,7 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextSpan(
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.to(() => SignUpPage(), transition: Transition.leftToRightWithFade),
+                          ..onTap = () => Get.to(() => SignUpPage(),
+                              transition: Transition.leftToRightWithFade),
                         text: " Create",
                         style: const TextStyle(
                             color: Colors.black,

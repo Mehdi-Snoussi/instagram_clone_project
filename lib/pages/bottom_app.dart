@@ -3,7 +3,7 @@ import 'package:second_app/pages/home_page.dart';
 
 class BottomScreen extends StatefulWidget {
   const BottomScreen({super.key});
-
+  
   @override
   State<BottomScreen> createState() => _BottomScreenState();
 }
@@ -34,7 +34,8 @@ class _BottomScreenState extends State<BottomScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        backgroundColor: const Color(0xFF292B37),
+        selectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );

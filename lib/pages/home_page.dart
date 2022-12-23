@@ -1,82 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:second_app/widgets/upcoming_widget.dart';
+import '../providers/user_proviser.dart';
+import '../widgets/new_movies_widget.dart';
 
 class Home extends StatelessWidget {
-  const Home({ Key? key }) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Container(
-            width: w,
-            height: h * 0.35,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("img/signup.png"), fit: BoxFit.fill)),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: h * 0.16,
-                ),
-                const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 60,
-                  backgroundImage: AssetImage("img/profile1.png"),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Container(
-            width: w,
-            margin: const EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-            Text(
-              "Welcome",
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color:Colors.black
+      backgroundColor: const Color(0xFF0F111D),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hello ${Provider.of<UserProvider>(context).userName}',
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Text(
+                        'What to Watch?',
+                        style: TextStyle(color: Colors.white54),
+                      )
+                    ],
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Image.asset(
+                      "img/profile.jpg",
+                      height: 60,
+                      width: 60,
+                    ),
+                  )
+                ],
               ),
             ),
-            Text(
-              "email@email.com",
-              style: TextStyle(
-                fontSize: 18,
-                color:Colors.grey
+            Container(
+              height: 60,
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                  color: const Color(0xFF292B37),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.search,
+                    color: Colors.white54,
+                    size: 30,
+                  ),
+                  Container(
+                    width: 300,
+                    margin: const EdgeInsets.only(left: 5),
+                    child: const TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search",
+                          hintStyle: TextStyle(color: Colors.white54)),
+                    ),
+                  )
+                ],
               ),
             ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 200,),
-          Container(
-            width: w * 0.5,
-            height: h * 0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                    image: AssetImage("img/loginbtn.png"), fit: BoxFit.fill)),
-            child: const Center(
-              child: Text(
-                "Sign Out",
-                style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
-          ),
-        ]
+            const SizedBox(height: 30),
+            const UpcomingWidget(),
+            const SizedBox(height: 40),
+            const NewMoviesWidget(),
+          ]),
+        ),
       ),
     );
   }
