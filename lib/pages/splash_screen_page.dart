@@ -28,12 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
       children: [
         Container(
           decoration: BoxDecoration(
-              color: const Color(0x00dedbed).withOpacity(0.46),
+              color: const Color(0xFF0F111D),
               gradient: LinearGradient(
                 colors: [
-                  const Color.fromRGBO(255, 171, 64, 1).withOpacity(0.99),
-                  const Color.fromARGB(255, 255, 64, 64).withOpacity(0.99),
-                  const Color.fromARGB(255, 223, 8, 8).withOpacity(0.99)
+                  const Color.fromARGB(199, 95, 95, 98).withOpacity(0.99),
+                  const Color.fromARGB(117, 52, 53, 59).withOpacity(0.99),
+                  const Color.fromARGB(255, 4, 6, 11).withOpacity(0.99)
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -43,20 +43,20 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage("img/insta.png"),
+              image: AssetImage("img/login.png"),
               width: 200,
               height: 150,
             ),
             const SizedBox(
               height: 80,
             ),
-            Text(
+            const Text(
               "Welcome to our app!",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Dangrek",
-                color: Colors.black.withOpacity(0.53),
+                color: Colors.white,
               ),
             ),
             SpinKitThreeInOut(
@@ -65,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 return DecoratedBox(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: index.isEven ? Colors.white : Colors.white),
+                      color: index.isEven ? Colors.red : Colors.white),
                 );
               },
             ),

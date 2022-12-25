@@ -10,12 +10,12 @@ class CustomHeader extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(60), bottomRight: Radius.circular(60)),
-        color: const Color(0x00dedbed).withOpacity(0.46),
+        color: const Color(0xFF0F111D),
         gradient: LinearGradient(
           colors: [
-            const Color.fromRGBO(255, 171, 64, 1).withOpacity(0.99),
-            const Color.fromARGB(255, 255, 64, 64).withOpacity(0.99),
-            const Color.fromARGB(255, 223, 8, 8).withOpacity(0.99)
+            const Color.fromARGB(199, 95, 95, 98).withOpacity(0.99),
+            const Color.fromARGB(117, 52, 53, 59).withOpacity(0.99),
+            const Color.fromARGB(255, 4, 6, 11).withOpacity(0.99)
           ],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
@@ -29,7 +29,7 @@ class CustomHeader extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 45),
             child: Image.asset(
-              "img/insta.png",
+              "img/login.png",
               height: 170,
               width: 170,
             ),
@@ -38,7 +38,7 @@ class CustomHeader extends StatelessWidget {
             margin: const EdgeInsets.only(right: 20, top: 1, left: 20),
             alignment: Alignment.center,
             child: const Text(
-              "Welcome",
+              "CornMovies",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,

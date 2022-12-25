@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
               ),
             ),
             Container(
-              height: 60,
+              height: 55,
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
                     size: 30,
                   ),
                   Container(
-                    width: 300,
+                    width: 280,
                     margin: const EdgeInsets.only(left: 5),
                     child: const TextField(
                       style: TextStyle(color: Colors.white),

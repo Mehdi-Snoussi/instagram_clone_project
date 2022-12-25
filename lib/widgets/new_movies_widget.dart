@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:second_app/pages/movie_page.dart';
 
 class NewMoviesWidget extends StatelessWidget {
   const NewMoviesWidget({super.key});
@@ -37,7 +39,9 @@ class NewMoviesWidget extends StatelessWidget {
           child: Row(children: [
             for (int i = 1; i < 4; i++)
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => const MoviePage());
+                },
                 child: Container(
                   width: 190,
                   height: 300,

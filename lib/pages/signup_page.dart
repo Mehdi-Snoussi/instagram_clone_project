@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:second_app/helpers/login_helper.dart';
 import 'package:second_app/models/user.dart';
 import 'package:second_app/pages/login_page.dart';
+import 'package:second_app/widgets/custom_header.dart';
 import '../widgets/custom_inputs.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -32,25 +33,7 @@ class _SignUpPageState extends State<SignUpPage> {
           key: _formKey,
           child: Column(
             children: [
-              Container(
-                width: w,
-                height: h * 0.35,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("img/signup.png"), fit: BoxFit.fill)),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: h * 0.16,
-                    ),
-                    const CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 60,
-                      backgroundImage: AssetImage("img/profile1.png"),
-                    )
-                  ],
-                ),
-              ),
+              const CustomHeader(),
               Container(
                 width: w,
                 margin: const EdgeInsets.only(left: 20, right: 20),
@@ -58,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 45,
+                      height: 25,
                     ),
                     CustomInputs(
                       obscureText: false,
@@ -68,11 +51,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       hintText: 'username',
                       prefix: const Icon(
                         Icons.email,
-                        color: Color.fromRGBO(255, 171, 64, 1),
+                        color: Colors.red,
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     CustomInputs(
                       obscureText: true,
@@ -82,11 +65,25 @@ class _SignUpPageState extends State<SignUpPage> {
                       hintText: 'Password',
                       prefix: const Icon(
                         Icons.password_outlined,
-                        color: Colors.orangeAccent,
+                        color: Colors.red,
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
+                    ),
+                    CustomInputs(
+                      obscureText: true,
+                      textInputType: TextInputType.text,
+                      validator: RequiredValidator(errorText: 'enter password'),
+                      onsaved: (value) => _user.pwd = value!,
+                      hintText: 'Confirm Password',
+                      prefix: const Icon(
+                        Icons.password_outlined,
+                        color: Colors.red,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     Row(
                       children: [
@@ -104,7 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               InkWell(
                 onTap: () {
@@ -122,12 +119,19 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: h * 0.08,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      image: const DecorationImage(
-                          image: AssetImage("img/loginbtn.png"),
-                          fit: BoxFit.fill)),
+                      color: const Color(0xFF0F111D),
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color.fromARGB(199, 95, 95, 98)
+                              .withOpacity(0.99),
+                          const Color.fromARGB(117, 52, 53, 59)
+                              .withOpacity(0.99),
+                          const Color.fromARGB(255, 4, 6, 11).withOpacity(0.99)
+                        ],
+                      )),
                   child: const Center(
                     child: Text(
-                      "Sign in",
+                      "Sign up",
                       style: TextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
@@ -136,8 +140,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: h * 0.03,
+              const SizedBox(
+                height: 10,
               ),
               RichText(
                 text: TextSpan(

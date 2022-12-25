@@ -4,7 +4,6 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:second_app/helpers/login_helper.dart';
-import 'package:second_app/models/user.dart';
 import 'package:second_app/pages/bottom_app.dart';
 import 'package:second_app/pages/signup_page.dart';
 import 'package:second_app/providers/user_proviser.dart';
@@ -56,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'username',
                       prefix: const Icon(
                         Icons.email,
-                        color: Color.fromRGBO(255, 171, 64, 1),
+                        color: Colors.red,
                       ),
                     ),
                     const SizedBox(
@@ -70,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Password',
                       prefix: const Icon(
                         Icons.password_outlined,
-                        color: Colors.orangeAccent,
+                        color: Colors.red,
                       ),
                     ),
                     const SizedBox(
@@ -98,13 +97,13 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () async {
                   if (_formKey.currentState!.validate()) {
                     if (await log.getLogin(_userName, _password) != null) {
-
                       _formKey.currentState?.save();
-                      Provider.of<UserProvider>(context, listen: false).updateUser(_userName, _password);
+                      Provider.of<UserProvider>(context, listen: false)
+                          .updateUser(_userName, _password);
                       _formKey.currentState?.reset();
 
                       print(await log.getUsers());
-                      
+
                       Get.to(() => const BottomScreen(),
                           transition: Transition.leftToRightWithFade);
                     } else {
@@ -121,9 +120,16 @@ class _LoginPageState extends State<LoginPage> {
                   height: h * 0.08,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      image: const DecorationImage(
-                          image: AssetImage("img/loginbtn.png"),
-                          fit: BoxFit.fill)),
+                      color: const Color(0xFF0F111D),
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color.fromARGB(199, 95, 95, 98)
+                              .withOpacity(0.99),
+                          const Color.fromARGB(117, 52, 53, 59)
+                              .withOpacity(0.99),
+                          const Color.fromARGB(255, 4, 6, 11).withOpacity(0.99)
+                        ],
+                      )),
                   child: const Center(
                     child: Text(
                       "Sign in",
@@ -145,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextSpan(
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.to(() => SignUpPage(),
+                          ..onTap = () => Get.to(() => const SignUpPage(),
                               transition: Transition.leftToRightWithFade),
                         text: " Create",
                         style: const TextStyle(
