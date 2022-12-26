@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 
 class ActorsWidget extends StatelessWidget {
-  const ActorsWidget({super.key});
+  const ActorsWidget({super.key, required this.actors});
 
+  final List actors;
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,13 +37,13 @@ class ActorsWidget extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(children: [
-            for (int i = 1; i < 10; i++)
+            for (int i = 0; i < actors.length; i++)
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    "img/profile.jpg",
+                  child: Image.network(
+                    "${actors[i]}",
                     height: 100,
                     width: 150,
                     fit: BoxFit.cover,

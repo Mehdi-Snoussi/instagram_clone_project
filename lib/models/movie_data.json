@@ -1,0 +1,87 @@
+[
+    {
+        "name": "The Avengers",
+        "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.",
+        "category": "Action/Adventure",
+        "rating": "8.5",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_FMjpg_UX1000_.jpg",
+        "imageUrl": "https://ww2.kqed.org/app/uploads/sites/12/2015/04/the-avengers-800x450.jpg",
+        "actors": [
+            "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS8vYy2EaeIHi-nOXs2oaIrQks52cWHbC-ds66WbgVmrRrdfmfgSfVH-UsGBb0sFjzl1vxbdudVcV1k5Dg",
+            "https://i.pinimg.com/736x/8e/c6/65/8ec665bd41e5934bb9b6cb446e487067.jpg",
+            "https://cdn.britannica.com/28/215028-050-94E9EA1E/American-actor-Chris-Evans-2019.jpg",
+            "https://m.media-amazon.com/images/M/MV5BOTk2NDc2ODgzMF5BMl5BanBnXkFtZTcwMTMzOTQ4Nw@@._V1_.jpg",
+            "https://flxt.tmsimg.com/assets/43389_v9_bc.jpg",
+            "https://cdn.britannica.com/92/215392-050-96A4BC1D/Australian-actor-Chris-Hemsworth-2019.jpg"
+        ],
+        "id": "1"
+    },
+    {
+        "name": "Jhon Whick",
+        "description": "Jhon Whick 1 is a movie that goes around an ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took his car. This movie is both exciting and full of action an science fiction events.",
+        "category": "Action/Crime",
+        "rating": "7.0",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_FMjpg_UX1000_.jpg",
+        "imageUrl": "http://straightfromamovie.com/wp-content/uploads/2015/02/john-wick.jpg",
+        "actors": [
+            "https://images.news18.com/ibnlive/uploads/2022/08/untitled-design-6-2.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Michael_Nyqvist_2013.jpg/1200px-Michael_Nyqvist_2013.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alfie_Allen_by_Gage_Skidmore_2.jpg/1200px-Alfie_Allen_by_Gage_Skidmore_2.jpg",
+            "https://flxt.tmsimg.com/assets/393_v9_bb.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/DeanWintersOct10.jpg/640px-DeanWintersOct10.jpg",
+            "https://static.wikia.nocookie.net/headhuntershorrorhouse/images/6/64/Adrianne_Palicki.jpg/revision/latest?cb=20150909020654"
+        ],
+        "id": "2"
+    },
+    {
+        "name": "ZombieLand",
+        "description": "A shy student trying to reach his family in Ohio, a gun-toting bruiser in search of the last Twinkie and a pair of sisters striving to get to an amusement park join forces in a trek across a zombie-filled America.",
+        "category": "Action/Horror",
+        "rating": "7.6",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU5MDg0NTQ1N15BMl5BanBnXkFtZTcwMjA4Mjg3Mg@@._V1_.jpg",
+        "imageUrl": "https://www.wealthmanagement.com/sites/wealthmanagement.com/files/styles/article_featured_retina/public/zombieland-tile.jpeg?itok=JJX2Ndn9",
+        "actors": [
+            "https://m.media-amazon.com/images/M/MV5BNTE3MzQzODE3OV5BMl5BanBnXkFtZTcwMDE0ODY1NA@@._V1_.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/3/31/Emma_Stone_at_Maniac_UK_premiere_%28cropped%29.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMTU3NDc2ODc4MF5BMl5BanBnXkFtZTcwODk2MzAyMg@@._V1_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMzU5MTA5MzYzOF5BMl5BanBnXkFtZTcwODc4OTIxNw@@._V1_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMjA4NDkyODA3M15BMl5BanBnXkFtZTgwMzUzMjYzNzM@._V1_.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg"
+        ],
+        "id": "3"
+    },
+    {
+        "name": "Avatar",
+        "description": "A shy student trying to reach his family in Ohio, a gun-toting bruiser in search of the last Twinkie and a pair of sisters striving to get to an amusement park join forces in a trek across a zombie-filled America.",
+        "category": "Action/Fantasy",
+        "rating": "7.8",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg",
+        "imageUrl": "https://lumiere-a.akamaihd.net/v1/images/csr_yt_ae2ddc55.jpeg?region=0,0,1920,1080",
+        "actors": [
+            "https://images.news18.com/ibnlive/uploads/2022/08/untitled-design-6-2.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Michael_Nyqvist_2013.jpg/1200px-Michael_Nyqvist_2013.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alfie_Allen_by_Gage_Skidmore_2.jpg/1200px-Alfie_Allen_by_Gage_Skidmore_2.jpg",
+            "https://flxt.tmsimg.com/assets/393_v9_bb.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/DeanWintersOct10.jpg/640px-DeanWintersOct10.jpg",
+            "https://static.wikia.nocookie.net/headhuntershorrorhouse/images/6/64/Adrianne_Palicki.jpg/revision/latest?cb=20150909020654"
+        ],
+        "id": "4"
+    },
+    {
+        "name": "The Godfather",
+        "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.",
+        "category": "Crime/Drama",
+        "rating": "9.2",
+        "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+        "imageUrl": "https://english.mathrubhumi.com/image/contentid/policy:1.7360226:1647750550/Capture.PNG?$p=d11b36d&f=16x10&w=856&q=0.8",
+        "actors": [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Marlon_Brando_publicity_for_One-Eyed_Jacks.png/800px-Marlon_Brando_publicity_for_One-Eyed_Jacks.png",
+            "https://upload.wikimedia.org/wikipedia/commons/3/31/Emma_Stone_at_Maniac_UK_premiere_%28cropped%29.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMTU3NDc2ODc4MF5BMl5BanBnXkFtZTcwODk2MzAyMg@@._V1_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMzU5MTA5MzYzOF5BMl5BanBnXkFtZTcwODc4OTIxNw@@._V1_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMjA4NDkyODA3M15BMl5BanBnXkFtZTgwMzUzMjYzNzM@._V1_.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bill_Murray-8882.jpg/1200px-Bill_Murray-8882.jpg"
+        ],
+        "id": "5"
+    }
+]

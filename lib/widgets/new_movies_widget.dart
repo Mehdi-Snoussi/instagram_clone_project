@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:second_app/pages/movie_page.dart';
 
 class NewMoviesWidget extends StatelessWidget {
-  const NewMoviesWidget({super.key});
-
+  const NewMoviesWidget({super.key, required this.movie});
+  
+  final List<dynamic> movie;
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,10 +39,10 @@ class NewMoviesWidget extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(children: [
-            for (int i = 1; i < 4; i++)
+            for (int i = 0; i < movie.length; i++)
               InkWell(
                 onTap: () {
-                  Get.to(() => const MoviePage());
+                  Get.to(() => MoviePage(movId:"${movie[i]["id"]}"));
                 },
                 child: Container(
                   width: 190,
@@ -63,8 +65,8 @@ class NewMoviesWidget extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10)),
-                        child: Image.asset(
-                          "img/up$i.jpg",
+                        child: Image.network(
+                          "${movie[i]["poster"]}",
                           height: 200,
                           width: 200,
                           fit: BoxFit.cover,
@@ -76,32 +78,32 @@ class NewMoviesWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Movie Title",
-                              style: TextStyle(
+                            Text(
+                              "${movie[i]["name"]}",
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 21,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             const SizedBox(height: 5),
-                            const Text(
-                              "Action/Adventure",
-                              style: TextStyle(
+                            Text(
+                              "${movie[i]["category"]}",
+                              style: const TextStyle(
                                 color: Colors.white54,
                               ),
                             ),
                             const SizedBox(width: 8),
                             Row(
-                              children: const [
-                                Icon(
+                              children: [
+                                const Icon(
                                   Icons.star,
                                   color: Colors.amber,
                                 ),
                                 SizedBox(width: 5),
                                 Text(
-                                  "8.5",
-                                  style: TextStyle(
+                                  "${movie[i]["rating"]}",
+                                  style: const TextStyle(
                                       color: Colors.white54, fontSize: 16),
                                 )
                               ],

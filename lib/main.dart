@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:second_app/pages/splash_screen_page.dart';
+import 'package:second_app/providers/movies_provider.dart';
 import 'package:second_app/providers/user_proviser.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => UserProvider()),
+        ChangeNotifierProvider(create: (ctx) => MoviesProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

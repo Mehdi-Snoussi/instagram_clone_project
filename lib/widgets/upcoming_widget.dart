@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../pages/movie_page.dart';
 
 class UpcomingWidget extends StatelessWidget {
-  const UpcomingWidget({super.key});
-
+  const UpcomingWidget({super.key, required this.movie});
+  final List<dynamic> movie;
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,16 +39,21 @@ class UpcomingWidget extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(children: [
-            for (int i = 1; i < 4; i++)
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    "img/up$i.jpg",
-                    height: 180,
-                    width: 300,
-                    fit: BoxFit.cover,
+            for (int i = 0; i < movie.length; i++)
+              InkWell(
+                onTap: () {
+                  Get.to(() => MoviePage(movId:"${movie[i]["id"]}"));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      "${movie[i]["imageUrl"]}",
+                      height: 180,
+                      width: 300,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               )
