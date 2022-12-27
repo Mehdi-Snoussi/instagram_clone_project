@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: const Color(0xFF0F111D),
         body: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.only(top: 80, left: 30, right: 30),
+            padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
             child: Column(
               children: [
                 SizedBox(
