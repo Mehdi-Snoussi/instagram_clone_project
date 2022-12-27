@@ -5,8 +5,6 @@ import 'package:http/http.dart' as http;
 class MoviesProvider extends ChangeNotifier {
   List<dynamic> list = [];
   bool isLoading = false;
-  bool isLoading2 = false;
-  dynamic movieById;
 
   Future getMovies() async {
     isLoading = true;
@@ -30,25 +28,8 @@ class MoviesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future getMovieById(String id) async {
-    isLoading2 = true;
-    var url =
-        Uri.parse("https://63a9ef9e7d7edb3ae61ca8cc.mockapi.io/movies/movie/$id");
-    // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      var jsonResponse = jsonDecode(response.body);
-      isLoading2 = false;
-      movieById = jsonResponse;
-      if (kDebugMode) {
-        print('response: $movieById.');
-      }
-    } else {
-      if (kDebugMode) {
-        isLoading2 = false;
-        print('Request failed with status: ${response.statusCode}.');
-      }
-    }
+  onPressedBookmark(int index) {
+    list[index]["bookmarked"] = !list[index]["bookmarked"];
     notifyListeners();
   }
 }

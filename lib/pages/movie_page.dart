@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:second_app/widgets/actors_widget.dart';
-
 import '../providers/movies_provider.dart';
 
 class MoviePage extends StatefulWidget {
-  const MoviePage({super.key, required this.movId});
+  const MoviePage({super.key, required this.index});
 
-  final String movId;
+  final int index;
 
   @override
   State<MoviePage> createState() => _MoviePageState();
@@ -17,8 +15,6 @@ class MoviePage extends StatefulWidget {
 class _MoviePageState extends State<MoviePage> {
   @override
   void initState() {
-    Provider.of<MoviesProvider>(context, listen: false)
-        .getMovieById(widget.movId);
     super.initState();
   }
 
@@ -27,19 +23,12 @@ class _MoviePageState extends State<MoviePage> {
     return Scaffold(
       backgroundColor: const Color(0xFF0F111D),
       body: Consumer<MoviesProvider>(builder: (context, value, child) {
-        return 
-           value.isLoading2 ? 
-          const SpinKitDoubleBounce(
-            color: Colors.white,
-            size: 50.0,
-            duration: Duration(milliseconds: 1500)
-          )
-        : Stack(
+        return Stack(
           children: [
             Opacity(
               opacity: 0.4,
               child: Image.network(
-                "${value.movieById["imageUrl"]}",
+                "${value.list[widget.index]["imageUrl"]}",
                 height: 280,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -87,7 +76,7 @@ class _MoviePageState extends State<MoviePage> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.network(
-                                "${value.movieById["poster"]}",
+                                "${value.list[widget.index]["poster"]}",
                                 height: 250,
                                 width: 180,
                               ),
@@ -99,18 +88,32 @@ class _MoviePageState extends State<MoviePage> {
                               width: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(40),
-                                  color: Colors.red,
+                                  color: value.list[widget.index]
+                                              ["bookmarked"] ==
+                                          true
+                                      ? Colors.green
+                                      : Colors.red,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.red.withOpacity(0.5),
+                                      color: value.list[widget.index]
+                                                  ["bookmarked"] ==
+                                              true
+                                          ? Colors.green.withOpacity(0.5)
+                                          : Colors.red.withOpacity(0.5),
                                       spreadRadius: 2,
                                       blurRadius: 8,
                                     )
                                   ]),
                               child: InkWell(
-                                onTap: () {},
-                                child: const Icon(
-                                  Icons.add,
+                                onTap: () {
+                                  Provider.of<MoviesProvider>(context,
+                                          listen: false)
+                                      .onPressedBookmark(widget.index);
+                                },
+                                child: Icon(
+                                  value.list[widget.index]["bookmarked"] == true
+                                      ? Icons.check
+                                      : Icons.add,
                                   color: Colors.white,
                                   size: 50,
                                 ),
@@ -128,7 +131,7 @@ class _MoviePageState extends State<MoviePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "${value.movieById["name"]}",
+                            "${value.list[widget.index]["name"]}",
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 30,
@@ -138,7 +141,7 @@ class _MoviePageState extends State<MoviePage> {
                             height: 15,
                           ),
                           Text(
-                           "${value.movieById["description"]}",
+                            "${value.list[widget.index]["description"]}",
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
@@ -151,7 +154,9 @@ class _MoviePageState extends State<MoviePage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    ActorsWidget(actors: value.movieById["actors"],),
+                    ActorsWidget(
+                      actors: value.list[widget.index]["actors"],
+                    ),
                   ],
                 ),
               ),

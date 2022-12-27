@@ -42,7 +42,7 @@ class UpcomingWidget extends StatelessWidget {
             for (int i = 0; i < movie.length; i++)
               InkWell(
                 onTap: () {
-                  Get.to(() => MoviePage(movId:"${movie[i]["id"]}"));
+                  Get.to(() => MoviePage(index: i,));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),

@@ -42,7 +42,7 @@ class NewMoviesWidget extends StatelessWidget {
             for (int i = 0; i < movie.length; i++)
               InkWell(
                 onTap: () {
-                  Get.to(() => MoviePage(movId:"${movie[i]["id"]}"));
+                  Get.to(() => MoviePage(index: i,));
                 },
                 child: Container(
                   width: 190,
