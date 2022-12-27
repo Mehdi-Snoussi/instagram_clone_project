@@ -100,7 +100,7 @@ class NewMoviesWidget extends StatelessWidget {
                                   Icons.star,
                                   color: Colors.amber,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(
                                   "${movie[i]["rating"]}",
                                   style: const TextStyle(
