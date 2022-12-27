@@ -5,7 +5,7 @@ class CustomInputs extends StatelessWidget {
       {Key? key,
       required this.hintText,
       required this.prefix,
-      required this.onsaved,
+      this.onsaved,
       required this.validator,
       required this.textInputType,
       required this.obscureText})
