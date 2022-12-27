@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -8,7 +9,6 @@ import 'package:second_app/pages/bottom_app.dart';
 import 'package:second_app/pages/signup_page.dart';
 import 'package:second_app/providers/user_proviser.dart';
 import 'package:second_app/widgets/custom_header.dart';
-
 import '../widgets/custom_inputs.dart';
 
 class LoginPage extends StatefulWidget {
@@ -102,7 +102,9 @@ class _LoginPageState extends State<LoginPage> {
                           .updateUser(_userName, _password);
                       _formKey.currentState?.reset();
 
-                      print(await log.getUsers());
+                      if (kDebugMode) {
+                        print(await log.getUsers());
+                      }
 
                       Get.to(() => const BottomScreen(),
                           transition: Transition.leftToRightWithFade);
