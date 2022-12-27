@@ -9,6 +9,7 @@ import 'package:second_app/pages/bottom_app.dart';
 import 'package:second_app/pages/signup_page.dart';
 import 'package:second_app/providers/user_proviser.dart';
 import 'package:second_app/widgets/custom_header.dart';
+import '../providers/movies_provider.dart';
 import '../widgets/custom_inputs.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,7 +24,13 @@ class _LoginPageState extends State<LoginPage> {
   late String _userName;
   late String _password;
   LoginHelper log = LoginHelper();
-
+  
+   @override
+  void initState() {
+    Provider.of<MoviesProvider>(context, listen: false).getMovies();
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;

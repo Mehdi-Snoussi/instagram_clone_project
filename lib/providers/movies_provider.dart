@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 class MoviesProvider extends ChangeNotifier {
   List<dynamic> list = [];
+  List<dynamic> bookmarkedList = [];
   bool isLoading = false;
 
   Future getMovies() async {
@@ -28,8 +29,17 @@ class MoviesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  getBookmarkedList() {
+    bookmarkedList = list.where((element) => element["bookmarked"] == true).toList();
+  }
+
   onPressedBookmark(int index) {
     list[index]["bookmarked"] = !list[index]["bookmarked"];
+    notifyListeners();
+  }
+
+  onPressedBookmark2(int index) {
+    bookmarkedList[index]["bookmarked"] = !bookmarkedList[index]["bookmarked"];
     notifyListeners();
   }
 }
