@@ -13,7 +13,7 @@ class BookmarkPage extends StatefulWidget {
 class _BookmarkPageState extends State<BookmarkPage> {
   @override
   void initState() {
-Provider.of<MoviesProvider>(context, listen: false).getBookmarkedList();
+    Provider.of<MoviesProvider>(context, listen: false).getBookmarkedList();
     super.initState();
   }
 
@@ -64,19 +64,19 @@ Provider.of<MoviesProvider>(context, listen: false).getBookmarkedList();
                             const SizedBox(width: 10),
                             Text(
                               "${value.bookmarkedList[i]["name"]}",
-                              style:
-                                  const TextStyle(color: Colors.white, fontSize: 22),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 22),
                             ),
                             const Spacer(),
                             InkWell(
                               onTap: () {
                                 Provider.of<MoviesProvider>(context,
-                                          listen: false)
-                                      .onPressedBookmark2(i);
-                                      
+                                        listen: false)
+                                    .onPressedBookmark2(i);
+
                                 Provider.of<MoviesProvider>(context,
-                                          listen: false)
-                                      .getBookmarkedList();        
+                                        listen: false)
+                                    .getBookmarkedList();
                               },
                               child: const Icon(
                                 Icons.delete,

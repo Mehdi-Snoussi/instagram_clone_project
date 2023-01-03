@@ -60,7 +60,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     CustomInputs(
                       obscureText: true,
                       textInputType: TextInputType.text,
-                      validator: RequiredValidator(errorText: 'enter password'),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "enter password";
+                        } else if (value.length < 8) {
+                          return "min 8 characters";
+                        } else {
+                          return null;
+                        }
+                      },
                       onsaved: (value) => _user.pwd = value!,
                       hintText: 'Password',
                       prefix: const Icon(
@@ -75,12 +83,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: true,
                       textInputType: TextInputType.text,
                       validator: (value) {
-                                  if (value != _user.pwd) {
-                                    return "Password must be same as above";
-                                  } else {
-                                    return null;
-                                  }
-                                },
+                        if (value != _user.pwd) {
+                          return "Password must be same as above";
+                        } else {
+                          return null;
+                        }
+                      },
                       hintText: 'Confirm Password',
                       prefix: const Icon(
                         Icons.password_outlined,
@@ -112,7 +120,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     log.saveUser(_user);
-                    Get.to(() => const LoginPage(), transition: Transition.leftToRightWithFade);
+                    Get.to(() => const LoginPage(),
+                        transition: Transition.leftToRightWithFade);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('invalid input')));
