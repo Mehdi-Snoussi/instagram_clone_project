@@ -154,7 +154,7 @@ class SearchedMovies extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 30),
               Text(
                 "${searchList[i]["name"]}",
                 style: const TextStyle(color: Colors.white, fontSize: 22),
