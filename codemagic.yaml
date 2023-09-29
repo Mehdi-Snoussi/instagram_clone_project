@@ -2,3 +2,11 @@ workflows:
   my-workflow:
     environment:
       flutter: 3.1.0
+    scripts:
+      - name: Launch emulator
+        script: |
+          set -e # exit on first failed command
+          cd $ANDROID_HOME/tools
+          emulator -avd emulator &
+          adb wait-for-device
+
